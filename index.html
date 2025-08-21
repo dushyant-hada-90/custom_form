@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimalistic Form Site</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#register">Register</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>Welcome 🚀</h1>
+    <p>Join our event and be part of something amazing.</p>
+    <a href="#register"><button>Register Now</button></a>
+  </section>
+
+  <!-- Register Section -->
+  <section id="register">
+    <h2>Register</h2>
+    <form id="myForm">
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="email" name="Email" placeholder="Your Email" required>
+      <textarea name="Message" placeholder="Your Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="response"></p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About</h2>
+    <p>This is a custom minimal website built with plain HTML, CSS & JS.</p>
+  </section>
+</body>
+</html>
