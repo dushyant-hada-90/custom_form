@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Minimalistic Form Site</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <!-- Navbar -->
@@ -24,13 +23,16 @@
   <!-- Register Section -->
   <section id="register">
     <h2>Register</h2>
-    <form id="myForm">
+    <form 
+      id="myForm" 
+      action="https://script.google.com/macros/s/AKfycbyTDjfpRimcOnjgWh2Y3WRgikDgRcEgpHoiOPxfAMA6Z08-PSKkAhPQ9FpQPCJTctJgCg/exec" 
+      method="POST"
+    >
       <input type="text" name="Name" placeholder="Your Name" required>
       <input type="email" name="Email" placeholder="Your Email" required>
       <textarea name="Message" placeholder="Your Message"></textarea>
       <button type="submit">Submit</button>
     </form>
-    <p id="response"></p>
   </section>
 
   <!-- About Section -->
