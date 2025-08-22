@@ -2,8 +2,13 @@ document.getElementById("myForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const formData = new FormData(this);
+  const responseEl = document.getElementById("response");
+  const spinner = document.getElementById("spinner");
 
-  // 👉 Replace this with your actual Google Apps Script Web App URL (ending with /exec)
+  // Show spinner and clear previous messages
+  spinner.style.display = "block";
+  responseEl.innerText = "";
+
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTDjfpRimcOnjgWh2Y3WRgikDgRcEgpHoiOPxfAMA6Z08-PSKkAhPQ9FpQPCJTctJgCg/exec";
 
   try {
@@ -12,16 +17,19 @@ document.getElementById("myForm").addEventListener("submit", async function(e) {
       body: formData
     });
 
-    const result = await response.text();
+    const result = await response.json();
 
-    if (response.ok) {
-      document.getElementById("response").innerText = "✅ Submitted successfully!";
-      this.reset();
+    if (result.result === "success") {
+      responseEl.innerText = "✅ Submitted successfully!";
+      // this.reset();
     } else {
-      document.getElementById("response").innerText = "❌ Error: " + result;
+      responseEl.innerText = "❌ Error: " + result.message;
     }
   } catch (error) {
-    document.getElementById("response").innerText = "⚠️ Network error. Check URL or permissions.";
+    responseEl.innerText = "❌ Couldn't update Google Sheet";
     console.error(error);
+  } finally {
+    // Hide spinner after response
+    spinner.style.display = "none";
   }
 });
